@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>OnlySmart - Course</title>
+  <style>
+    body {
+      margin: 0;  
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, #407BFF, #5A8BFF);
+      padding: 16px 40px;
+      color: white;
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .navbar .nav-links a {
+      color: white;
+      margin: 0 16px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .navbar .nav-links a.active {
+      text-decoration: underline;
+    }
+
+    .section-title {
+      background-color: #d9d9d9;
+      display: inline-block;
+      padding: 8px 20px;
+      font-weight: bold;
+      border-radius: 12px;
+      font-size: 18px;
+    }
+
+    .dropdown-container {
+      position: relative;
+      text-align: center;
+      margin: 32px 0 20px;
+    }
+
+    .dropdown-button {
+      background-color: #d9d9d9;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #d9d9d9;
+      border-radius: 12px;
+      padding: 10px 0;
+      width: 250px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    .dropdown-menu div {
+      padding: 12px;
+      font-weight: bold;
+      border-bottom: 1px solid black;
+      cursor: pointer;
+    }
+
+    .dropdown-menu div:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-menu div:hover {
+      background-color: #c0c0c0;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 24px;
+      padding: 0 40px 40px;
+    }
+
+    .card {
+      background-color: #eaeaea;
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .card .thumbnail {
+      background-color: #c4c4c4;
+      height: 100px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">OnlySmart</div>
+    <div class="nav-links">
+      <a href="Home.html" class="active">Home</a>
+      <a href="#" class="active">Course</a>
+      <a href="#" class="active">Community</a>
+      <a href="#" class="active">About</a>
+    </div>
+    <img src="Logo User OnlySmart.png" alt="User Logo" width="30" height="30">
+  </div>
+
+  <!-- Dropdown di tengah halaman -->
+  <div class="dropdown-container">
+    <button class="dropdown-button" onclick="toggleDropdown()">Biologi - Kelas 12</button>
+    <div class="dropdown-menu" id="subjectDropdown">
+      <div onclick="showSubject('biologi')">Biologi - Kelas 12</div>
+      <div onclick="showSubject('kimia')">Kimia - Kelas 12</div>
+      <div onclick="showSubject('fisika')">Fisika - Kelas 12</div>
+      <div onclick="showSubject('matematika')">Matematika Umum - Kelas 12</div>
+    </div>
+  </div>
+
+  <!-- Grid Pelajaran Biologi -->
+  <div id="biologi" class="course-grid">
+    <div class="card"><div class="thumbnail"></div><p>Pertumbuhan dan perkembangan</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Metabolisme</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Substansi Materi Genetik</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Pembelahan Sel</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Pola Pewarisan Sifat Pada Hukum Mendel</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Pola Pola Hereditas</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Hereditas Pada Manusia</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Mutasi</p></div>
+  </div>
+
+  <!-- Grid Pelajaran Lain -->
+  <div id="kimia" class="course-grid" style="display:none;">
+    <div class="card"><div class="thumbnail"></div><p>Sifat Klogatif</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Sel volta</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Korosi</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Elektrolisis</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Senyawa Turunan Alkana</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Isomer</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Jenis Dan Kegunaan Senyawa Karbon</p></div>
+
+  <div id="fisika" class="course-grid" style="display:none;">
+    <div class="card"><div class="thumbnail"></div><p>Listrik Statis</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Listrik Arus Searah</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Medan Magnet</p></div>
+  </div>
+
+  <div id="matematika" class="course-grid" style="display:none;">
+    <div class="card"><div class="thumbnail"></div><p>Statistika</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Kaidah Pecahan</p></div>
+    <div class="card"><div class="thumbnail"></div><p>Dimensi Tiga  </p></div>
+  </div>
+
+  <!-- Script untuk dropdown dan switching -->
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("subjectDropdown");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function showSubject(subjectId) {
+      const allSubjects = document.querySelectorAll(".course-grid");
+      allSubjects.forEach(subject => subject.style.display = "none");
+
+      document.getElementById(subjectId).style.display = "grid";
+      document.getElementById("subjectDropdown").style.display = "none";
+
+      const button = document.querySelector(".dropdown-button");
+      const labelMap = {
+        biologi: "Biologi - Kelas 12",
+        kimia: "Kimia - Kelas 12",
+        fisika: "Fisika - Kelas 12",
+        matematika: "Matematika Umum - Kelas 12"
+      };
+      button.innerText = labelMap[subjectId];
+    }
+
+    window.onclick = function(event) {
+      const dropdown = document.getElementById("subjectDropdown");
+      if (!event.target.matches('.dropdown-button')) {
+        dropdown.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
