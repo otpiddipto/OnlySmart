@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ubah lagi di MAIN
+=======
+Halo dari BRANCH KONFLIK
+>>>>>>> branch-konflik
